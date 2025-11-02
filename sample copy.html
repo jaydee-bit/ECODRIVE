@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="text-gray-800 bg-gray-50">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 z-20 w-full bg-white shadow-md">
+    <div class="flex items-center justify-between max-w-6xl px-4 py-3 mx-auto">
+      <h1 class="text-2xl font-bold text-blue-600">MyWebsite</h1>
+      
+      <!-- Hamburger Icon -->
+      <button id="menu-btn" class="block md:hidden focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+
+      <!-- Menu -->
+      <div id="menu" class="hidden space-x-6 md:flex">
+        <a href="#" class="hover:text-blue-600">Home</a>
+        <a href="#" class="hover:text-blue-600">About</a>
+        <a href="#" class="hover:text-blue-600">Services</a>
+        <a href="#" class="hover:text-blue-600">Contact</a>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden bg-white border-t border-gray-100 md:hidden">
+      <a href="#" class="block px-4 py-2 hover:bg-gray-100">Home</a>
+      <a href="#" class="block px-4 py-2 hover:bg-gray-100">About</a>
+      <a href="#" class="block px-4 py-2 hover:bg-gray-100">Services</a>
+      <a href="#" class="block px-4 py-2 hover:bg-gray-100">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="pt-24 text-center">
+    <h2 class="mb-4 text-4xl font-bold">Welcome to MyWebsite</h2>
+    <p class="max-w-md mx-auto mb-6 text-gray-600">
+      We create modern, responsive, and user-friendly web designs that help your business grow.
+    </p>
+    <a href="#" class="px-6 py-2 text-white transition bg-blue-600 rounded-lg hover:bg-blue-700">
+      Get Started
+    </a>
+  </section>
+
+  <!-- Features Section -->
+  <section class="grid max-w-6xl gap-6 px-6 mx-auto mt-16 md:grid-cols-3">
+    <div class="p-6 text-center bg-white shadow-md rounded-xl">
+      <h3 class="mb-2 text-xl font-semibold">Fast</h3>
+      <p>Optimized performance for quick load times and smooth browsing.</p>
+    </div>
+    <div class="p-6 text-center bg-white shadow-md rounded-xl">
+      <h3 class="mb-2 text-xl font-semibold">Responsive</h3>
+      <p>Looks great on desktops, tablets, and mobile devices.</p>
+    </div>
+    <div class="p-6 text-center bg-white shadow-md rounded-xl">
+      <h3 class="mb-2 text-xl font-semibold">Modern</h3>
+      <p>Clean and elegant design with the latest web technologies.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-6 mt-16 text-center text-gray-500 border-t">
+    © 2025 MyWebsite. All rights reserved.
+  </footer>
+
+  <!-- Script for Hamburger -->
+  <script>
+    const btn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    btn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+
+</body>
+</html>
