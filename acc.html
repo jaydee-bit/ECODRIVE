@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home Page</title>
+  <title>Account Page</title>
   <link rel="stylesheet" href="./dist/output.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -33,41 +33,41 @@
       </div>
 
       <!-- Hamburger Button -->
-      <button id="menu-btn" class="text-white focus:outline-none md:hidden">
+      <button id="menu-btn" class="text-white cursor-pointer focus:outline-none md:hidden">
         <i class="text-2xl fa-solid fa-bars"></i>
       </button>
 
       <!-- Desktop Nav -->
       <nav class="hidden space-x-8 text-lg font-bold md:flex">
-        <a href="Homepage.html" class=" hover:text-yellow-200">Home</a>
-        <a href="#" class=" hover:text-yellow-200">Loans</a>
-        <a href="#" class="text-yellow-300 hover:text-yellow-200">Account</a>
-        <a href="#"><i class="fa-solid fa-bell hover:text-yellow-200"></i></a>
+        <a href="Homepage.html" onclick="setTimeout(() => { location.href='Homepage.html'; }, 2000 ); return false;" class=" hover:text-yellow-200">Home</a>
+        <a href="Loans.html" onclick="setTimeout(() => { location.href='Loans.html'; }, 2000 ); return false;"  class=" hover:text-yellow-200">Loans</a>
+        <a href="acc.html" onclick="setTimeout(() => { location.href='acc.html'; }, 2000 ); return false;"  class="text-yellow-300 hover:text-yellow-200">Account</a>
+        <a href="#" onclick="setTimeout(() => { location.href='Notification.html'; }, 2000 ); return false;" ><i class="fa-solid fa-bell hover:text-yellow-200"></i></a>
       </nav>
     </div>
 
     <!-- Mobile Nav -->
     <nav
       id="mobile-menu"
-      class="flex-col hidden text-lg font-bold text-blue-700 transition-all duration-300 bg-white shadow-md lg:hidden"
+      class="flex-col hidden text-sm font-bold text-gray-700 transition-all duration-300 bg-white shadow-md lg:hidden"
     >
       <a
-        href="#"
+        href="Homepage.html" onclick="setTimeout(() => { location.href='Homepage.html'; }, 2000 ); return false;"
         class="w-full px-6 py-3 text-left border-b border-gray-200 hover:bg-blue-50"
         >Home</a
       >
       <a
-        href="#"
+        href="Loans.html" onclick="setTimeout(() => { location.href='Loans.html'; }, 2000 ); return false;" 
         class="w-full px-6 py-3 text-left border-b border-gray-200 hover:bg-blue-50"
         >Loans</a
       >
       <a
-        href="#"
-        class="w-full px-6 py-3 text-left border-b border-gray-200 hover:bg-blue-50"
+        href="acc.html" onclick="setTimeout(() => { location.href='acc.html'; }, 2000 ); return false;" 
+        class="w-full px-6 py-3 text-left text-blue-500 border-b border-gray-200 hover:bg-blue-50"
         >Account</a
       >
       <a
-        href="#"
+        href="#" onclick="setTimeout(() => { location.href='Notification.html'; }, 2000 ); return false;" 
         class="w-full px-6 py-3 text-left border-b border-gray-200 hover:bg-blue-50">Notifications</a>
     </nav>
   </header>
@@ -115,13 +115,13 @@
     </section>
 
     <!-- Other Options -->
-    <section class="pt-4 mt-6 space-y-2 text-black border-t border-gray-200">
-      <button class="w-full py-2 text-left border-b border-gray-100 hover:bg-gray-200">Notifications</button>
-      <button class="w-full py-2 text-left border-b border-gray-100 hover:bg-gray-200">Transaction History</button>
-      <button class="w-full py-2 text-left border-b border-gray-100 hover:bg-gray-200">Settings</button>
-      <button class="w-full py-2 text-left border-b border-gray-100 hover:bg-gray-200">Help Center</button>
-      <button class="w-full py-2 text-left border-b border-gray-100 hover:bg-gray-200">Terms & Conditions</button>
-      <button onclick="location.href='index.html'"  class="w-full py-2 font-medium text-left text-red-600 hover:bg-red-50">Log out</button>
+    <section class="w-full pt-4 mt-6 space-y-2 text-black border-t border-gray-200">
+      <button class="w-full py-2 text-left border-b border-gray-200 hover:bg-gray-300">Notifications</button>
+      <button class="w-full py-2 text-left border-b border-gray-200 hover:bg-gray-300" onclick="setTimeout(() => { location.href='Transaction.html'; }, 2000 ); return false;">Transaction History</button>
+      <button class="w-full py-2 text-left border-b border-gray-200 hover:bg-gray-300">Settings</button>
+      <button class="w-full py-2 text-left border-b border-gray-200 hover:bg-gray-300">Help Center</button>
+      <button class="w-full py-2 text-left border-b border-gray-200 hover:bg-gray-300">Terms & Conditions</button>
+      <button onclick="setTimeout(() => { location.href='index.html'; }, 2000 ); return false;"  class="w-full py-2 font-medium text-left text-red-600 hover:bg-red-50">Log out</button>
     </section>
   </main>
 
