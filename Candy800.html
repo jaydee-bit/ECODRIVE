@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Candy 800</title>
-    
     <link href="./dist/output.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
-
+  <script
+    src="https://kit.fontawesome.com/414b0df42d.js"
+    crossorigin="anonymous"
+  ></script>
+  
 </head>
 <style>
   .font-audiowide {
@@ -20,25 +23,47 @@
 <body class="flex flex-col min-h-screen overflow-x-hidden bg-gray-100">
     <!-- Overall body uses flex column, full height, and responsive background colors -->
 
-  <!-- ===== Header Section ===== -->
-  <div class="justify-between p-4 font-bold text-white bg-blue-600 shadow-lg lg:flex">
-    <!-- Header container with spacing, colors, and responsive flex layout -->
-    <img  src="dist/images/logo.png" alt="ECODRIVE" class="mx-auto mb-2 lg:ml-4 sm:mb-0 md:mb-0 lg:mb-0 xl:mb-0 w-xs">
-    
-    <!-- Site title -->
-     
-    <nav class="flex justify-center gap-3 text-lg lg:mt-5 sm:gap-3 lg:gap-3 md:gap-3 sm:mt-4 sm:text-2xl md:mr-4 font-audiowide">
-      <!-- Navigation menu centered with gap between links -->
-      <a href="Homepage.html" class="hover:text-yellow-200 hover:underline ">Home </a>
-      <p>></p>
-      <a href=""  class="hover:text-yellow-200 hover:underline">Candy 800</a>
-      
-      
-    </nav>
-  </div>
-  <div class="grid max-w-2xl grid-cols-1 mt-4 xl:ml-50 xl:gap-50 sm:grid-cols-2 lg:ml-20 lg:gap-20 md:mx-auto sm:mx-auto sm:gap-4">
-  <div class="relative mx-auto w-70 lg:w-90 ">
+  <header class="relative top-0 left-0 z-50 w-full text-white bg-blue-600 shadow-lg font-audiowide">
+    <div class="flex items-center justify-between px-4 py-3 lg:px-8">
+      <div class="flex items-center space-x-3">
+        <img src="dist/images/logo.png" alt="ECODRIVE" class="w-30" />
+      </div>
 
+      <!-- Hamburger Button -->
+      <button id="menu-btn" class="text-white cursor-pointer focus:outline-none md:hidden">
+        <i class="text-2xl fa-solid fa-bars"></i>
+      </button>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden space-x-8 text-lg font-bold md:flex">
+        <a href="Homepage.html" onclick="setTimeout(() => { location.href='Homepage.html'; }, 2000 ); return false;"  class=" hover:text-yellow-200">Home</a>
+        <a href="Loans.html" onclick="setTimeout(() => { location.href='Loans.html'; }, 2000 ); return false;"  class="hover:text-yellow-200">Loans</a>
+        <a href="acc.html" onclick="setTimeout(() => { location.href='acc.html'; }, 2000 ); return false;" class="hover:text-yellow-200">Account</a>
+        <a href="#"onclick="setTimeout(() => { location.href='Notification.html'; }, 2000 ); return false;" ><i class="fa-solid fa-bell hover:text-yellow-200"></i></a>
+      </nav>
+    </div>
+
+    <!-- Mobile Nav: switched from fixed to absolute, placed below header -->
+    <nav
+      id="mobile-menu"
+      class="flex-col hidden text-sm font-bold text-gray-700 transition-all duration-300 bg-white shadow-md lg:hidden absolute top-full left-0 w-full max-h-[calc(100vh-4rem)] overflow-auto z-50"
+    >
+      <a href="Homepage.html" onclick="setTimeout(() => { location.href='Homepage.html'; }, 2000 ); return false;"  class="w-full px-6 py-3 text-left border-b border-gray-200 hover:bg-blue-50">Home</a>
+      <a href="Loans.html" onclick="setTimeout(() => { location.href='Loans.html'; }, 2000 ); return false;"  class="w-full px-6 py-3 text-left border-b border-gray-200 hover:bg-blue-50">Loans</a>
+      <a href="acc.html" onclick="setTimeout(() => { location.href='acc.html'; }, 2000 ); return false;"  class="w-full px-6 py-3 text-left border-b border-gray-200 hover:bg-blue-50">Account</a>
+      <a href="#" onclick="setTimeout(() => { location.href='Notification.html'; }, 2000 ); return false;"  class="w-full px-6 py-3 text-left border-b border-gray-200 hover:bg-blue-50">Notifications</a>
+    </nav>
+  </header>
+  <div class="flex gap-2 mx-auto mt-4 font-semibold text-gray-600 lg:ml-20 ">
+    <a href="Homepage.html" onclick="setTimeout(() => { window.location.href='Homepage.html'; }, 2000 ); return false;" class="hover:text-blue-500">Home</a>
+    <h1>/</h1>
+    <a href="" class="text-blue-500">Candy 800</a>
+  </div>
+
+  
+  <div class="grid max-w-2xl grid-cols-1 -mt-2 xl:ml-50 xl:gap-50 sm:grid-cols-2 lg:ml-20 lg:gap-20 md:mx-auto sm:mx-auto sm:gap-4 lg:-mt-14 ">
+  <div class="relative mx-auto w-60">
+  
     <!-- Carousel Container -->
     <div id="carousel" class="relative w-full overflow-hidden carousel h-80 md:h-96">
       <div class="w-full carousel-item">
@@ -67,11 +92,11 @@
       <button id="nextBtn" class="-mr-8 btn btn-circle">❯</button>
     </div>
   </div>
-  <div class="mt-8 ml-8 font-bold md:mt-17 md:ml-20 sm:ml-14 ">
-    <h1 class="text-xl font-bold tracking-wide text-black sm:text-2xl ">Candy 800</h1>
-    <h1 class="mt-4 text-xl tracking-wide text-black lg:gap-2 lg:inline-flex sm:text-2xl ">Price: <span class="text-green-500">₱39,000</span></h1>
-    <h1 class="mt-4 text-xl font-bold tracking-wide text-black lg:inline-flex sm:text-2xl">Downpayment:<span class="ml-2 text-xl tracking-wide text-green-500 sm:text-2xl ">₱4,500</span></h1>
-    <h1 class="mt-4 text-xl font-bold tracking-wide text-black lg:inline-flex sm:text-2xl ">Monthly:<span class="ml-2 text-xl tracking-wide text-green-500 sm:text-2xl lg:inline-flex">₱2,700</span> <span class="text-xl font-bold tracking-wide text-black sm:text-2xl lg:inline-flex">/15months</span></h1>
+  <div class="mt-8 ml-8 font-semibold text-md md:mt-30 sm:mt-25 md:ml-20 sm:ml-14">
+    <h1 class="font-bold tracking-wide text-black font-audiowide ">Candy 800</h1>
+    <h1 class="mt-4 tracking-wide text-black lg:gap-2 lg:inline-flex ">Price: <span class="text-green-500">₱39,000</span></h1>
+    <h1 class="mt-4 tracking-wide text-black lg:inline-flex ">Downpayment:<span class="ml-2 tracking-wide text-green-500 ">₱4,500</span></h1>
+    <h1 class="mt-4 tracking-wide text-black lg:inline-flex whitespace-nowrap ">Monthly:<span class="ml-2 tracking-wide text-green-500 lg:inline-flex">₱2,700<span class="tracking-wide text-black lg:inline-flex lg:ml-2"> for 15 months.</span></h1>
 </div>
 </div>
 
@@ -80,11 +105,11 @@
 
   </div>
 
-  <div class="mb-12 w-[90%] font-semibold mx-auto mt-8 text-black sm:text-2xl tracking-wide">
+  <div class="mb-12 w-[90%] font-semibold mx-auto mt-8 md:-mt-10 text-black   tracking-wide">
         <table class="w-full bg-white border border-collapse border-gray-300">
             <thead>
                 <tr>
-                    <th colspan="2" class="px-4 py-2 text-2xl font-bold text-center bg-white border-gray-300 ">Specifications</th>
+                    <th colspan="2" class="px-4 py-2 text-xl font-bold text-center bg-white border-gray-300 ">Specifications</th>
                 </tr>
             </thead>
             <tbody>
@@ -121,7 +146,7 @@
                 </tr>
                 <tr>
                   <td class="px-4 py-2 border border-gray-300">Rear</td>
-                  <td class="px-4 py-2 border border-gray-300">Drum Brake</td>
+                  <td class="px-4 py-2 border border-gray-300">Disc Brake</td>
                 </tr>
                 <tr>
                     <th colspan="2" class="px-4 py-2 border border-gray-300">Tire</th>
@@ -139,17 +164,46 @@
                     <td class="px-4 py-2 border border-gray-300">Available Colors</td>
                     <td class="px-4 py-2 border border-gray-300">Red, Gray, Sky Blue</td>
                 </tr>
+                
             </tbody>
         </table>
     </div>
   
   
 
-  <!-- ===== Footer Section ===== -->
-  <div class="p-4 mt-auto text-2xl font-bold text-center text-white bg-blue-600">
-    <!-- Footer sticks to bottom (mt-auto) and changes color with breakpoints -->
-    &copy; 2025 My Website. All rights reserved.
-  </div>
+  <!-- Footer -->
+    <footer class="py-6 mt-10 text-gray-300 bg-gray-900">
+      <div class="flex flex-col items-center justify-between px-6 mx-auto max-w-7xl md:flex-row">
+        <!-- Left -->
+        <div class="mb-4 text-sm md:mb-0">
+          <span class="font-semibold text-white">Ecodrive</span> © 2025. All rights reserved.
+        </div>
+
+        <!-- Center -->
+        <div class="flex space-x-6 text-xs">
+          <a href="#" class="transition-colors hover:text-white hover:underline">Terms of Service</a>
+          <a href="#" class="transition-colors hover:underline hover:text-white">Privacy Policy</a>
+          <a href="#" class="transition-colors hover:underline hover:text-white">About</a>
+          <a href="#" class="transition-colors hover:underline hover:text-white">Contact</a>
+          <a href="#" class="transition-colors hover:text-white hover:underline">Help Center</a>
+        </div>
+
+        <!-- Right -->
+        
+      </div>
+    </footer>
+
+  <script>
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    let menuOpen = false;
+
+    menuBtn.addEventListener("click", () => {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle("hidden", !menuOpen);
+      mobileMenu.classList.toggle("flex", menuOpen);
+    });
+  </script>
   
 <script src="carousel.js"></script>
 
