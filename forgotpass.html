@@ -11,7 +11,6 @@
 
   <style>
     .font-audiowide { font-family: "Audiowide", cursive; }
-
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -23,16 +22,15 @@
 <body class="min-h-screen overflow-x-hidden bg-white">
   <div class="flex flex-col min-h-screen lg:flex-row">
 
-    <!-- Left Section (Large Screens) -->
+    <!-- Left Section -->
     <div class="relative flex-col items-center justify-center hidden p-12 text-white bg-gradient-to-br from-blue-600 to-blue-700 lg:flex lg:w-1/2">
       <img src="dist/images/logo.png" class="mx-auto mb-8 xl:w-5xl" />
       <h1 class="mb-6 font-bold xl:text-5xl lg:text-3xl">Forgot Your Password?</h1>
-      <p class="text-xl text-center opacity-90">No worries! Enter your phone number to receive OTP verification.</p>
+      <p class="text-xl text-center opacity-90">No worries! Enter any phone number to receive OTP verification.</p>
     </div>
 
     <!-- Right Section -->
     <div class="flex flex-col w-full lg:w-1/2">
-
       <!-- Mobile Header -->
       <div class="flex flex-col items-center justify-center text-center text-white bg-gradient-to-br from-blue-600 to-blue-700 lg:hidden h-28">
         <img src="dist/images/logo.png" class="mb-2 w-65" />
@@ -43,11 +41,11 @@
         <p class="opacity-80 text-md">Reset your account password</p>
       </div>
 
-      <!-- Main content -->
+      <!-- Form Section -->
       <div class="flex items-center justify-center flex-1 p-8 bg-white lg:p-12 lg:bg-gray-50">
         <div class="w-full max-w-md animate-fadeIn">
 
-          <!-- Back button (desktop only) -->
+          <!-- Back button -->
           <button onclick="history.back()"
             class="hidden mb-8 text-xl text-gray-600 lg:flex hover:text-gray-900">
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -60,23 +58,17 @@
           <!-- Desktop title -->
           <div class="hidden mb-8 lg:block">
             <h2 class="mb-2 text-3xl font-bold text-gray-900">Forgot Password?</h2>
-            <p class="text-gray-600">Enter your phone number to receive an OTP.</p>
+            
           </div>
 
-          <!-- Forgot Password Form -->
+          <!-- Form -->
           <form id="forgotForm" onsubmit="handleForgot(event)">
-
-            <!-- Phone Input -->
             <label class="block mb-2 text-sm font-semibold text-gray-700">Phone Number</label>
-
             <input
               type="text"
               id="phone"
               class="w-full px-4 py-3.5 border-2 border-gray-300 rounded-xl focus:border-blue-600 focus:outline-none transition-all text-gray-600"
-              placeholder="09XXXXXXXXX"
-              minlength="11"
-              maxlength="11"
-              oninput="this.value=this.value.replace(/[^0-9]/g,'')"
+              placeholder="Enter phone number"
               required
             />
 
@@ -86,7 +78,7 @@
               Submit
             </button>
 
-            <p id="forgotMessage" class="hidden mt-4 font-medium text-center"></p>
+            <p id="forgotMessage" class="hidden mt-4 font-medium text-center text-green-600"></p>
           </form>
 
           <div class="mt-12 text-center text-gray-600">
@@ -98,50 +90,25 @@
     </div>
   </div>
 
-  <!-- Script -->
   <script>
-    // Automatically create a test user if none exists
-    if (!localStorage.getItem("user")) {
-      localStorage.setItem("user", JSON.stringify({ phone: "09123456789" }));
-    }
-
     function handleForgot(event) {
       event.preventDefault();
 
       const phone = document.getElementById("phone").value;
       const message = document.getElementById("forgotMessage");
 
-      // Validate phone number length
-      if (phone.length !== 11) {
-        message.textContent = "Please enter a valid 11-digit phone number.";
-        message.classList.remove("hidden", "text-green-600");
-        message.classList.add("text-red-600");
-        return;
-      }
-
-      const storedUser = JSON.parse(localStorage.getItem("user"));
-
-      // Check if phone number exists
-      if (!storedUser || storedUser.phone !== phone) {
-        message.textContent = "Phone number not found.";
-        message.classList.remove("hidden", "text-green-600");
-        message.classList.add("text-red-600");
-        return;
-      }
-
-      // Generate OTP and log to console only (no localStorage)
+      // Accept ANY input
       const otp = Math.floor(100000 + Math.random() * 900000);
       console.log("OTP for testing:", otp);
 
-      message.textContent = "Sending OTP... Check console for testing.";
+      message.textContent = "OTP sent! Check console for testing.";
       message.classList.remove("hidden", "text-red-600");
       message.classList.add("text-green-600");
 
       setTimeout(() => {
         location.href = "otp.html";
-      }, 3000);
+      }, 2000);
     }
   </script>
-
 </body>
 </html>
