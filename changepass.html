@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EcoDrive - Reset Password</title>
+    <title>EcoDrive - Change Password</title>
     <link rel="stylesheet" href="./dist/output.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -58,8 +58,10 @@
             alt="EcoDrive Logo"
             class="mx-auto mb-8 xl:w-5xl"
           />
-          <h1 class="mb-6 font-bold xl:text-5xl lg:text-3xl">Reset Password</h1>
-          <p class="text-xl opacity-90">Create a new secure password</p>
+          <h1 class="mb-6 font-bold xl:text-5xl lg:text-3xl">
+            Change Password
+          </h1>
+          <p class="text-xl opacity-90">Create a new password</p>
         </div>
       </div>
 
@@ -73,7 +75,7 @@
         </div>
 
         <div class="mt-4 font-bold text-center text-black lg:hidden">
-          <h1 class="mb-2 text-2xl">Reset Password</h1>
+          <h1 class="mb-2 text-2xl">Change Password</h1>
           <p class="opacity-80 text-md">Create a new password</p>
         </div>
 
@@ -106,7 +108,7 @@
             <!-- Desktop title -->
             <div class="hidden mb-8 lg:block">
               <h2 class="mb-2 text-3xl font-bold text-gray-900">
-                Reset Password
+                Change Password
               </h2>
               <p class="text-gray-600">
                 Create a new secure password for your account.
@@ -115,6 +117,50 @@
 
             <!-- Reset Password Form -->
             <form id="resetForm" onsubmit="handleReset(event)">
+              <!-- Old Password -->
+              <div class="mb-5">
+                <label class="block mb-2 text-sm font-semibold text-gray-700"
+                  >Old Password</label
+                >
+                <div
+                  class="relative flex items-center w-full px-4 py-3.5 border-2 border-gray-300 rounded-xl focus-within:border-blue-600 transition-all"
+                >
+                  <input
+                    type="password"
+                    id="oldPassword"
+                    class="flex-1 text-gray-900 bg-transparent focus:outline-none"
+                    placeholder="Enter old password"
+                    required
+                  />
+                  <button
+                    type="button"
+                    onclick="togglePassword('oldPassword', 'toggleOld')"
+                    class="text-gray-500 hover:text-gray-700"
+                  >
+                    <svg
+                      id="toggleOld"
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
               <!-- New Password -->
               <div class="mb-5">
                 <label class="block mb-2 text-sm font-semibold text-gray-700"
@@ -221,14 +267,6 @@
                 class="hidden mt-4 font-medium text-center"
               ></p>
             </form>
-
-            <div class="mt-12 text-center text-gray-600">
-              <a
-                href="Login.html"
-                class="font-semibold text-blue-600 hover:underline"
-                >Back to Login</a
-              >
-            </div>
           </div>
         </div>
       </div>
